@@ -16,9 +16,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import us.poptalks.R;
-import us.poptalks.model.invite_contacts;
-import us.poptalks.utils.CheeseFilter;
+import us.sayederfanarefin.R;
+import us.sayederfanarefin.model.invite_contacts;
+import us.sayederfanarefin.utils.CheeseFilter;
 
 /**
  * Created by erfanarefin on 27/07/2017.

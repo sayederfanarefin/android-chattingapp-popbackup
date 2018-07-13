@@ -14,9 +14,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
-import us.poptalks.ChatBox_;
-import us.poptalks.R;
-import us.poptalks.model.ChatHeaderGroup;
+import us.sayederfanarefin.ChatBox_;
+import us.sayederfanarefin.R;
+import us.sayederfanarefin.model.ChatHeaderGroup;
 
 /**
  * Created by erfanarefin on 27/07/2017.

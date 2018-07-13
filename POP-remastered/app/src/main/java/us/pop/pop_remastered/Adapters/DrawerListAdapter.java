@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import us.poptalks.R;
+import us.sayederfanarefin.R;
 
 
 /**

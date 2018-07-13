@@ -4,10 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import us.poptalks.fragment.ChatFragment;
-import us.poptalks.fragment.FriendFragment;
-import us.poptalks.fragment.HistoryFragment;
-import us.poptalks.fragment.InfoFragment;
+import us.sayederfanarefin.fragment.ChatFragment;
+import us.sayederfanarefin.fragment.FriendFragment;
+import us.sayederfanarefin.fragment.HistoryFragment;
+import us.sayederfanarefin.fragment.InfoFragment;
 
 
 /**

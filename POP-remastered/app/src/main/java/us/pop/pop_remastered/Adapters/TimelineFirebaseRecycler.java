@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import us.poptalks.R;
-import us.poptalks.model.post;
-import us.poptalks.model.timeline_header;
-import us.poptalks.model.timeline_post;
-import us.poptalks.model.users;
+import us.sayederfanarefin.R;
+import us.sayederfanarefin.model.post;
+import us.sayederfanarefin.model.timeline_header;
+import us.sayederfanarefin.model.timeline_post;
+import us.sayederfanarefin.model.users;
 
 /**
  * Created by erfan on 9/14/17.

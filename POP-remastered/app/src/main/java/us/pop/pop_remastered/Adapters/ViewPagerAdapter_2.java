@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import us.poptalks.fragment.FriendQRFragment;
-import us.poptalks.fragment.InviteFriendFragment;
-import us.poptalks.fragment.SearchFriendFragment;
+import us.sayederfanarefin.fragment.FriendQRFragment;
+import us.sayederfanarefin.fragment.InviteFriendFragment;
+import us.sayederfanarefin.fragment.SearchFriendFragment;
 
 
 /**
