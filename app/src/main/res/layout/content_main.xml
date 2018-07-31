@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="us.sayederfanarefin.us.sayederfanarefin.MainActivity"
+    tools:context="us.sayederfanarefin.MainActivity"
     tools:showIn="@layout/activity_main">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             tools:layout_editor_absoluteY="8dp"
             tools:layout_editor_absoluteX="8dp">

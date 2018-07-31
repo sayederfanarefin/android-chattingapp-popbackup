@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="us.sayederfanarefin.us.sayederfanarefin.ui.Settings">
+    tools:context="us.sayederfanarefin.ui.Settings">
 
     <RelativeLayout
         android:layout_width="match_parent"
