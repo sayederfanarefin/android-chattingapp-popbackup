@@ -44,6 +44,7 @@ import us.sayederfanarefin.R;
 import us.sayederfanarefin.model.Message;
 import us.sayederfanarefin.model.users;
 import us.sayederfanarefin.ui.FirstScreen;
+import us.sayederfanarefin.utils.Constants;
 
 
 /**
@@ -115,7 +116,7 @@ public class SearchListPhoneFragment extends Fragment {
             }
         };
 
-        mUserDatabaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://pop-free-emoji-texting.firebaseio.com/users");//FirebaseDatabase.getInstance().getReference().child(values.dbUserLocation).getDatabase().getReference();
+        mUserDatabaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl(Constants.FIREBASE_URL+"/users");//FirebaseDatabase.getInstance().getReference().child(values.dbUserLocation).getDatabase().getReference();
 
         search_bar.addTextChangedListener(new TextWatcher() {
             @Override
@@ -213,7 +214,7 @@ public class SearchListPhoneFragment extends Fragment {
 
         //  Query queryRef = mUserDatabaseReference.orderByChild("uid").equalTo(currentUser.getUid());
 
-        mFriendsDatabaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://pop-free-emoji-texting.firebaseio.com/friends");//FirebaseDatabase.getInstance().getReference().child(values.dbUserLocation).getDatabase().getReference();
+        mFriendsDatabaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl(Constants.FIREBASE_URL+"/friends");//FirebaseDatabase.getInstance().getReference().child(values.dbUserLocation).getDatabase().getReference();
 
 
 

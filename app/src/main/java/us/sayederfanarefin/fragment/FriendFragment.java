@@ -366,6 +366,8 @@ View view_;
         } catch (IllegalAccessException e) {
 
         }
-        mFriendsDatabaseReferenceCurrentUser.removeEventListener(friendsListValueEventListener);
+        if(mFriendsDatabaseReferenceCurrentUser!=null){
+            mFriendsDatabaseReferenceCurrentUser.removeEventListener(friendsListValueEventListener);
+        }
     }
 }

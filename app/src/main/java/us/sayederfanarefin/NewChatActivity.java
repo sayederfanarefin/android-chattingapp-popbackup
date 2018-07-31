@@ -40,6 +40,7 @@ import java.util.List;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 import us.sayederfanarefin.model.Chat;
 import us.sayederfanarefin.model.users;
+import us.sayederfanarefin.utils.Constants;
 
 public class NewChatActivity extends AppCompatActivity {
 
@@ -77,8 +78,8 @@ public class NewChatActivity extends AppCompatActivity {
         search_bar  = (EditText) findViewById(R.id.id_search_chat_friend);
         sb = new SpannableStringBuilder();
 
-        mUserDatabaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://pop-free-emoji-texting.firebaseio.com/users");
-        mFriendsDatabaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://pop-free-emoji-texting.firebaseio.com/friends");
+        mUserDatabaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl(Constants.FIREBASE_URL+"/users");
+        mFriendsDatabaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl(Constants.FIREBASE_URL+"/friends");
         listView_id = (ListView) findViewById(R.id.firend_search_list_id);
 
 
@@ -316,7 +317,7 @@ public class NewChatActivity extends AppCompatActivity {
     private void afterChatKeyRetrival(final String chatKey, final List<String> added_users1){
         if(chatKey==null){
  //           // Log.v("=====xxx", "chatKeyNotFound ");
-            final DatabaseReference chatDbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://pop-free-emoji-texting.firebaseio.com/chats");
+            final DatabaseReference chatDbRef = FirebaseDatabase.getInstance().getReferenceFromUrl(Constants.FIREBASE_URL+"/chats");
 
             final Chat c = new Chat("", added_users1);
             final DatabaseReference pushRef = chatDbRef.push();
@@ -359,7 +360,7 @@ public class NewChatActivity extends AppCompatActivity {
             //getting the chat name
  //           // Log.v("=====xxx", "2 users chatKeyFound, opening next Activity"+ chatKey);
 
-            DatabaseReference chatDbRef2 = FirebaseDatabase.getInstance().getReferenceFromUrl("https://pop-free-emoji-texting.firebaseio.com/chats/"+chatKey);
+            DatabaseReference chatDbRef2 = FirebaseDatabase.getInstance().getReferenceFromUrl(Constants.FIREBASE_URL+"/chats/"+chatKey);
 
             Query q1 = chatDbRef2.child("chatName");
             q1.addListenerForSingleValueEvent(new ValueEventListener() {
