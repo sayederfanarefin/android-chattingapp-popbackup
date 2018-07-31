@@ -40,15 +40,11 @@ public class FriendsFirebaseRecycler extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        if (viewType == 0) {
+
             View itemView = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.friend_item_without_buttons, parent, false);
-                return new timeline_post(itemView);
-        }else{
-            View itemView = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.timeline_header_layout, parent, false);
-                return new timeline_header(itemView, new users(), context);
-        }
+                return new friends_recycler_view(itemView);
+
     }
 
     @Override
@@ -63,7 +59,7 @@ public class FriendsFirebaseRecycler extends RecyclerView.Adapter<RecyclerView.V
                 break;
 
             case 1:
-                timeline_header viewHolder_timeline_header = (timeline_header)holder;
+                friends_recycler_view viewHolder_timeline_header = (friends_recycler_view)holder;
 
                 break;
         }
