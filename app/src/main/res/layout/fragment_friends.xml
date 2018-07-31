@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/not_empty_friendsList"
-        android:visibility="gone"
+
        >
 
 
@@ -186,7 +186,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-
+        android:visibility="gone"
         android:id="@+id/empty_view_friendsList">
 
         <LinearLayout

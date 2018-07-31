@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
 
     android:orientation="vertical"
-    tools:context="us.sayederfanarefin.us.sayederfanarefin.ui.Settings">
+    tools:context="us.sayederfanarefin.ui.Settings">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.flurgle.camerakit.CameraView
+        <com.wonderkiln.camerakit.CameraView
             android:id="@+id/camera"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

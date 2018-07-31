@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="us.sayederfanarefin.us.sayederfanarefin.ChatBox_">
+    tools:context="us.sayederfanarefin.ChatBox_">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

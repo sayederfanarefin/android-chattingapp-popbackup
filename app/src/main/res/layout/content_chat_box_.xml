@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="us.sayederfanarefin.us.sayederfanarefin.ChatBox_"
+    tools:context="us.sayederfanarefin.ChatBox_"
     tools:showIn="@layout/activity_chat_box_">
 
 
@@ -22,7 +22,7 @@
         tools:layout_editor_absoluteY="8dp"
         >
 
-        <com.flurgle.camerakit.CameraView xmlns:camerakit="http://schemas.android.com/apk/res-auto"
+        <com.wonderkiln.camerakit.CameraView xmlns:camerakit="http://schemas.android.com/apk/res-auto"
             android:id="@+id/camera"
             android:layout_width="128dp"
             android:layout_height="128dp"

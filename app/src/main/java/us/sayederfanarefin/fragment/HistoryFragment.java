@@ -154,7 +154,7 @@ public class HistoryFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 current_user = dataSnapshot.getValue(users.class);
 
-                timeline_audio_url = current_user.getTimeLineAudio();
+               // timeline_audio_url = current_user.getTimeLineAudio();
 
                 timeLineRef = rootRef.child(values.dbUserLocation).child(current_user_firebase.getUid()).child("posts");
 

@@ -118,7 +118,7 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
 
     //camera kit, most probably unused
-    //compile 'com.flurgle:camerakit:0.9.17'
+    //compile 'com.wonderkiln:camerakit:0.9.17'
 
     compile 'com.fasterxml.jackson.core:jackson-databind:2.7.2'
     compile 'jp.wasabeef:glide-transformations:2.0.1'
@@ -171,7 +171,7 @@ dependencies {
     compile 'com.github.aakira:expandable-layout:1.6.0@aar'
 
     //camera kit
-    //compile 'com.flurgle:camerakit:0.9.17'
+    //compile 'com.wonderkiln:camerakit:0.9.17'
     compile 'com.wonderkiln:camerakit:0.11.1'
 
     //background animation for emoji
