@@ -1,5 +1,6 @@
 package us.sayederfanarefin.model;
 
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,4 +27,17 @@ public class friends_recycler_view extends RecyclerView.ViewHolder {
         invite_friend_user_image = itemView.findViewById(R.id.message_profile_image_without_button);
     }
 
+    public void name(String namee){
+        this.name.setText(namee);
+    }
+
+    public void mood(String mood){
+        this.mood.setText(mood);
+    }
+    public void phone(String phone){
+        this.phone.setText(phone);
+    }
+    public void invite_friend_user_image(Image image){
+      //  this.invite_friend_user_image.setImageBitmap(image);
+    }
 }
