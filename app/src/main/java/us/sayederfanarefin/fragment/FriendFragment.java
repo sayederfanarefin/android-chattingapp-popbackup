@@ -78,9 +78,10 @@ public class FriendFragment extends Fragment {
     private FirebaseUser currentUser;
     private LinearLayoutManager linearLayoutManager;
 
-    private TextView user_name, user_custom_id, user_status;
-    LinearLayout self, add_friend_floating;
-    ImageView user_pro_pic_self_row;
+   // private TextView user_name, user_custom_id, user_status;
+  //  LinearLayout self;
+           LinearLayout add_friend_floating;
+   // ImageView user_pro_pic_self_row;
     public FriendFragment() {
 
     }
@@ -90,12 +91,12 @@ View view_;
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view_ = inflater.inflate(R.layout.fragment_friends, container, false);
         setHasOptionsMenu(true);
-        user_name = view_.findViewById(R.id.self_row__profile_name);
-        user_custom_id = view_.findViewById(R.id.self_row_profile_id);
-        user_status = view_.findViewById(R.id.self_row_last_message);
-        user_pro_pic_self_row = view_.findViewById(R.id.self_row_profile_image);
+//        user_name = view_.findViewById(R.id.self_row__profile_name);
+//        user_custom_id = view_.findViewById(R.id.self_row_profile_id);
+//        user_status = view_.findViewById(R.id.self_row_last_message);
+//        user_pro_pic_self_row = view_.findViewById(R.id.self_row_profile_image);
 
-        self = view_.findViewById(R.id.self_row);
+//        self = view_.findViewById(R.id.self_row);
         add_friend_floating = view_.findViewById(R.id.add_frients_floating);
 
 
@@ -150,14 +151,14 @@ View view_;
             getActivity().startActivity(intent);
         }
 
-        self.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                getActivity().startActivity(intent);
-
-            }
-        });
+//        self.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+//                getActivity().startActivity(intent);
+//
+//            }
+//        });
         add_friend_floating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,7 +174,7 @@ View view_;
     }
     private void onInitialize(View view) {
         mUsername = currentUser.getDisplayName();
-        user_name.setText(currentUser.getDisplayName());
+    //    user_name.setText(currentUser.getDisplayName());
         mFriendsDatabaseReference = mFirebaseDatabase.getReference()
                 .child(values.dbFriendsLocation);
         mUserDatabaseReference = mFirebaseDatabase.getReference()
@@ -183,17 +184,17 @@ View view_;
             public void onDataChange(DataSnapshot snapshot) {
                 users me = snapshot.getValue(users.class);
                 if(me != null){
-                    user_status.setText(me.getMood());
-                    user_name.setText(me.getUsername());
-                    user_custom_id.setText(me.getPhone());
-                    if(isAttached){
-                        Glide.with(getActivity().getApplicationContext())
-                                .load(me.getProfilePicLocation())
-                                .centerCrop()
-                                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                                .bitmapTransform(new CropCircleTransformation(getActivity().getApplicationContext()))
-                                .into(user_pro_pic_self_row);
-                    }
+              //      user_status.setText(me.getMood());
+              //      user_name.setText(me.getUsername());
+              //      user_custom_id.setText(me.getPhone());
+//                    if(isAttached){
+//                        Glide.with(getActivity().getApplicationContext())
+//                                .load(me.getProfilePicLocation())
+//                                .centerCrop()
+//                                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+//                                .bitmapTransform(new CropCircleTransformation(getActivity().getApplicationContext()))
+//                                .into(user_pro_pic_self_row);
+//                    }
                 }
             }
             @Override

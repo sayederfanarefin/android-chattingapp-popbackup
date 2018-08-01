@@ -11,8 +11,6 @@ import java.util.List;
 import us.sayederfanarefin.R;
 import us.sayederfanarefin.model.friends;
 import us.sayederfanarefin.model.friends_recycler_view;
-import us.sayederfanarefin.model.timeline_header;
-import us.sayederfanarefin.model.timeline_post;
 import us.sayederfanarefin.model.users;
 
 /**
@@ -40,11 +38,15 @@ public class FriendsFirebaseRecycler extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-
+        if (viewType == 0) {
             View itemView = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.friend_item_without_buttons, parent, false);
                 return new friends_recycler_view(itemView);
-
+        }else{
+            View itemView = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.friends_list_header, parent, false);
+                return new friends_recycler_view(itemView);
+        }
     }
 
     @Override
