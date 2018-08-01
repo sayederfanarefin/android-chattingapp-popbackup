@@ -171,7 +171,8 @@ public class MainActivity extends AppCompatActivity {
                 else if(navigation_items.get(position).equalsIgnoreCase("Logout")){
 
                     AuthUI.getInstance().signOut(MainActivity.this);
-
+                    Intent intent = new Intent(MainActivity.this, FirstScreen.class);
+                    startActivity(intent);
                 }
             }
         });
