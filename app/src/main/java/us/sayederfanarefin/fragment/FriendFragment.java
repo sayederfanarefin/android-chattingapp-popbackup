@@ -131,14 +131,6 @@ public class FriendFragment extends Fragment {
             getActivity().startActivity(intent);
         }
 
-//        self.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-//                getActivity().startActivity(intent);
-//
-//            }
-//        });
         add_friend_floating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -156,30 +148,8 @@ public class FriendFragment extends Fragment {
         mUsername = currentUser.getDisplayName();
         mFriendsDatabaseReference = mFirebaseDatabase.getReference().child(values.dbFriendsLocation);
         mUserDatabaseReference = mFirebaseDatabase.getReference().child(values.dbUserLocation);
-//        mUserDatabaseReferencecurrentUsergetUidValueEventListener = new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot snapshot) {
-//                users me = snapshot.getValue(users.class);
-//                if(me != null){
-//              //      user_status.setText(me.getMood());
-//              //      user_name.setText(me.getUsername());
-//              //      user_custom_id.setText(me.getPhone());
-////                    if(isAttached){
-////                        Glide.with(getActivity().getApplicationContext())
-////                                .load(me.getProfilePicLocation())
-////                                .centerCrop()
-////                                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-////                                .bitmapTransform(new CropCircleTransformation(getActivity().getApplicationContext()))
-////                                .into(user_pro_pic_self_row);
-////                    }
-//                }
-//            }
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {}
-//        };
-     //   mUserDatabaseReferenceCurrentUser = mUserDatabaseReference.child(currentUser.getUid());
-     //   mUserDatabaseReferenceCurrentUser.addValueEventListener(mUserDatabaseReferencecurrentUsergetUidValueEventListener);
-        friendsListView =  view.findViewById(R.id.friendsListView);
+
+         friendsListView =  view.findViewById(R.id.friendsListView);
        // populateListView();
         mFriendsDatabaseReference.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -245,67 +215,6 @@ public class FriendFragment extends Fragment {
                     empty_view_friendsList.setVisibility(View.VISIBLE);
                     not_empty_friendsList.setVisibility(View.GONE);
                 }
-
-
-//                    FirebaseListAdapter<friends> firebase_list_adapter_users = new FirebaseListAdapter<friends>(
-//                            getActivity(),
-//                            friends.class,
-//                            R.layout.friend_item_without_buttons,
-//                            mFriendsDatabaseReferenceCurrentUser
-//                    )  {
-//                        @Override
-//                        protected void populateView(View v, final friends model, int position) {
-//                            TextView name = v.findViewById(R.id.friend_list_without_button_item_name);
-//                            final TextView mood = v.findViewById(R.id.friend_list_without_button_item_status);
-//                            TextView phone = v.findViewById(R.id.friend_list_without_button_item_user_id);
-//                            final ImageView invite_friend_user_image = v.findViewById(R.id.message_profile_image_without_button);
-//                            name.setText(model.getUsername());
-//                            phone.setText(model.getPhone());
-//                            final String uid = model.getUid();
-//                            mUserDatabaseReference.child(uid).addValueEventListener(new ValueEventListener() {
-//                                @Override
-//                                public void onDataChange(DataSnapshot dataSnapshot) {
-//                                    users temp = dataSnapshot.getValue(users.class);
-//                                    if(temp == null || temp.getMood() == null || temp.getMood().equals("")){
-//                                        mood.setText("Feeling Good!");
-//                                    }else{
-//                                        mood.setText(temp.getMood());
-//                                    }
-//                                    if (temp.getProfilePicLocation() != null && !temp.getProfilePicLocation().equals("")) {
-//
-//                                        if(isAttached){
-//                                            Glide.with(getActivity().getApplicationContext())
-//                                                    .load(temp.getProfilePicLocation())
-//                                                    .bitmapTransform(new CropCircleTransformation(getActivity().getApplicationContext()))
-//                                                    .centerCrop()
-//                                                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
-//                                                    .into(invite_friend_user_image);
-//                                        }
-//
-//                                    }
-//                                }
-//                                @Override
-//                                public void onCancelled(DatabaseError databaseError) {}
-//                            });
-//
-//                            v.setOnClickListener(new View.OnClickListener() {
-//                                @Override
-//                                public void onClick(View view) {
-//                                    Intent intent = new Intent(getActivity(), ProfileActivityFriend.class);
-//                                    intent.putExtra("uid", uid);
-//                                    startActivity(intent);
-//                                }
-//                            });
-//
-//                        }
-//                    };
-//                    friendsListView.setAdapter(firebase_list_adapter_users);
-//
-//
-//                    empty_view_friendsList.setVisibility(View.GONE);
-//                    not_empty_friendsList.setVisibility(View.VISIBLE);
-
-
                 }
 
             @Override
