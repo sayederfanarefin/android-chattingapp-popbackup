@@ -105,6 +105,8 @@ dependencies {
 
     //splash screen animation
     compile 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
+    //compile 'com.airbnb.android:lottie:2.5.5'
+
     //google android
     compile 'com.google.android.gms:play-services-auth:11.0.2'
     compile 'com.google.android.gms:play-services-analytics:11.0.2'

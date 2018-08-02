@@ -20,24 +20,16 @@
             android:layout_marginBottom="@dimen/dimen_login"
             >
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:layout_marginBottom="@dimen/dimen_login"
-                android:layout_weight="1"
-                >
-
 
                 <ImageView
-                    android:layout_width="fill_parent"
-                    android:layout_height="272dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:layout_gravity="center_horizontal"
                     android:src="@mipmap/create_account_bg"
-                    android:padding="16dp"
+
                     />
-            </LinearLayout>
+
 
             <LinearLayout
                 android:orientation="vertical"

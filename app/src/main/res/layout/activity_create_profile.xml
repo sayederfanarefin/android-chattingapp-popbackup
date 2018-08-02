@@ -39,7 +39,7 @@
                     android:layout_height="fill_parent"
                     android:layout_gravity="center_horizontal"
                     android:src="@mipmap/create_account_bg"
-                    android:padding="12dp"
+
                     />
             </LinearLayout>
 
