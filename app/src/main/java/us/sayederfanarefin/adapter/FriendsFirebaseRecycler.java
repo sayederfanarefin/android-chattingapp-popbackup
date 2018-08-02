@@ -57,18 +57,18 @@ public class FriendsFirebaseRecycler extends RecyclerView.Adapter<RecyclerView.V
                 friends_recycler_view viewHolder_friends = (friends_recycler_view) holder;
 
                 friends friends = friendsList.get(position);
-                viewHolder_friends.mood(friends.getUid());
+                viewHolder_friends.mood(friends.getPhone());
                 viewHolder_friends.phone(friends.getPhone());
-                viewHolder_friends.name(friends.getUsername());
+                viewHolder_friends.name("");
                 break;
 
             case 1:
                 friends_recycler_view viewHolder_timeline_header = (friends_recycler_view)holder;
 
                 friends friendss = friendsList.get(position);
-                viewHolder_timeline_header.mood(friendss.getUid());
+                viewHolder_timeline_header.mood(friendss.getPhone());
                 viewHolder_timeline_header.phone(friendss.getPhone());
-                viewHolder_timeline_header.name(friendss.getUsername());
+                viewHolder_timeline_header.name("");
                 break;
         }
 
