@@ -355,7 +355,9 @@ public class FriendFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
 
-        mUserDatabaseReferenceCurrentUser.removeEventListener(mUserDatabaseReferencecurrentUsergetUidValueEventListener);
+        if(mUserDatabaseReferenceCurrentUser != null){
+            mUserDatabaseReferenceCurrentUser.removeEventListener(mUserDatabaseReferencecurrentUsergetUidValueEventListener);
+        }
         isAttached = false;
         try {
             Field childFragmentManager = Fragment.class.getDeclaredField("mChildFragmentManager");
