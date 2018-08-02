@@ -3,6 +3,7 @@ package us.sayederfanarefin.model;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -33,6 +34,9 @@ public class timeline_header extends RecyclerView.ViewHolder {
         camera = (LinearLayout) itemView.findViewById(R.id.new_status_camera);
         status = (EditText) itemView.findViewById(R.id.status_editText);
 
+        //status.setEnabled(false);
+        //status.setInputType(InputType.TYPE_NULL);
+
         link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,17 +66,27 @@ public class timeline_header extends RecyclerView.ViewHolder {
                 //getActivity().finish();
             }
         });
-//        status.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(context, NewStatusActivity.class);
-//                intent.putExtra("type", "text");
-//                context.startActivity(intent);
-//                //getActivity().finish();
-//            }
-//        });
 
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, NewStatusActivity.class);
+                intent.putExtra("type", "text");
+                context.startActivity(intent);
+                //getActivity().finish();
+            }
+        });
 
+        status.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(b){
+                    Intent intent = new Intent(context, NewStatusActivity.class);
+                    intent.putExtra("type", "text");
+                    context.startActivity(intent);
+                }
+            }
+        });
 
 
         Glide.with(post_pro_pic.getContext())

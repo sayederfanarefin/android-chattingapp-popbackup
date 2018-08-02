@@ -114,8 +114,6 @@ public class HistoryFragment extends Fragment {
         final AppCompatActivity act = (AppCompatActivity) getActivity();
         if (act.getSupportActionBar() != null) {
             Toolbar toolbar = (Toolbar) act.findViewById(R.id.toolbar);
-
-
         }
 
 
@@ -173,7 +171,7 @@ public class HistoryFragment extends Fragment {
                         header_dummy_post.setPost_type("header");
                         postsList.add(header_dummy_post);
 
-                        if(postsList.size()  > 0){
+                        if(postsList.size()  > 1){
                             timeLineAdapter = new TimelineFirebaseRecycler(postsList,current_user,getContext());
                             empty_view.setVisibility(View.GONE);
                             timeline_self.setVisibility(View.VISIBLE);

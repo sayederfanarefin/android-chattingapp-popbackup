@@ -81,6 +81,7 @@ public class TimelineFirebaseRecycler extends RecyclerView.Adapter<RecyclerView.
             case 1:
                 timeline_header viewHolder_timeline_header = (timeline_header)holder;
 
+
                 break;
         }
 
