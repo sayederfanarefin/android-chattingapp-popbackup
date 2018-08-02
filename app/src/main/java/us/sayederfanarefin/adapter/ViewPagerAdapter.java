@@ -22,11 +22,11 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        if (position == 0) {
+        if (position == 3) {
             return new FriendFragment();
-        } else if (position == 1) {
-            return new ChatFragment();
         } else if (position == 2) {
+            return new ChatFragment();
+        } else if (position == 1) {
             return new HistoryFragment();
         } else {
             return new InfoFragment();

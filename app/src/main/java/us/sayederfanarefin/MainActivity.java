@@ -50,10 +50,10 @@ import us.sayederfanarefin.utils.database;
 public class MainActivity extends AppCompatActivity {
 
     private int[] pageIcon = {
-            R.drawable.ic_friends_custom,
-            R.drawable.ic_message,
+            R.drawable.ic_info_custom,
             R.drawable.ic_time_custom,
-            R.drawable.ic_info_custom
+            R.drawable.ic_message,
+            R.drawable.ic_friends_custom
     };
 
     public static int[] drawer_icons = {
@@ -250,21 +250,22 @@ public class MainActivity extends AppCompatActivity {
         if(b != null){
             String frag = b.getString("frag", "0");
             switch(frag){
-
-                case "friends":
-                    viewPager.setCurrentItem(0);
-                    break;
-                case "messages":
-                    viewPager.setCurrentItem(1);
-                    break;
                 case "timeline":
-                    viewPager.setCurrentItem(2);
+                    viewPager.setCurrentItem(1);
                     break;
                 case "info":
+                    viewPager.setCurrentItem(0);
+                    break;
+
+                case "message":
+                    viewPager.setCurrentItem(2);
+                    break;
+                case "friends":
                     viewPager.setCurrentItem(3);
                     break;
+
                 default:
-                    viewPager.setCurrentItem(1);
+                    viewPager.setCurrentItem(0);
                     break;
             }
         }
@@ -291,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
         navigation_items.add("Music");
         //navigation_items.add("Notifications");
         navigation_items.add("Profile");
-       // navigation_items.add("Settings");
+        navigation_items.add("Settings");
         navigation_items.add("Logout");
 
         lv_drawer = (ListView) findViewById(R.id.lv_drawer);
@@ -317,16 +318,16 @@ public class MainActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(tab.getPosition());
                 switch (tab.getPosition()) {
                     case 0:
-                        toolbarText.setText("Friends");
+                        toolbarText.setText("Home");
                         break;
                     case 1:
-                        toolbarText.setText("Chat");
-                        break;
-                    case 2:
                         toolbarText.setText("Timeline");
                         break;
+                    case 2:
+                        toolbarText.setText("Chat");
+                        break;
                     case 3:
-                        toolbarText.setText("Info");
+                        toolbarText.setText("Friends");
                         break;
                 }
             }
@@ -336,8 +337,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {}
         });
-        viewPager.setCurrentItem(1);
-        toolbarText.setText("Chat");
+        viewPager.setCurrentItem(0);
+        toolbarText.setText("Home");
         mFirebaseAuth = FirebaseAuth.getInstance();
         rootDb = database.getDatabase();
         rootRef = rootDb.getReference();

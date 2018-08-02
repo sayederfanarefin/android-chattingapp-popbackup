@@ -241,7 +241,6 @@ public class ReactActivity extends AppCompatActivity {
 
                 status_text_emotion.setText("processing..");
                 try {
-
                     Handler myHandler = new Handler() {
 
                         @Override
