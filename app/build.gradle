@@ -103,6 +103,8 @@ dependencies {
     compile 'com.microsoft.projectoxford:emotion:1.0.355'
     compile 'com.microsoft.projectoxford:face:1.0.0'
 
+    //splash screen animation
+    compile 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
     //google android
     compile 'com.google.android.gms:play-services-auth:11.0.2'
     compile 'com.google.android.gms:play-services-analytics:11.0.2'
