@@ -354,7 +354,7 @@ public class FriendFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        Log.v("=x=", "Friends frag Detached");
+
         mUserDatabaseReferenceCurrentUser.removeEventListener(mUserDatabaseReferencecurrentUsergetUidValueEventListener);
         isAttached = false;
         try {

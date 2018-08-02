@@ -29,8 +29,8 @@ public class FriendsFirebaseRecycler extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public int getItemViewType(int position) {
-        //Log.v("---xx-",  " inside getItemViewType, postiion->" + String.valueOf(position) +" length->" +  String.valueOf(friendsList.size()) );
-        if(friendsList.size()-1 == position){
+
+         if(friendsList.size()-1 == position){
             return 1;
         }else{
             return 0;
@@ -58,7 +58,7 @@ public class FriendsFirebaseRecycler extends RecyclerView.Adapter<RecyclerView.V
                 friends_recycler_view viewHolder_friends = (friends_recycler_view) holder;
 
                 users friends = friendsList.get(position);
-                Log.v("-=-=-==-=-=-", friends.getUsername());
+
                 viewHolder_friends.mood(friends.getMood());
                 viewHolder_friends.phone(friends.getPhone());
                 viewHolder_friends.name(friends.getUsername());
@@ -69,7 +69,7 @@ public class FriendsFirebaseRecycler extends RecyclerView.Adapter<RecyclerView.V
                 friends_recycler_view viewHolder_timeline_header = (friends_recycler_view)holder;
 
                 users friendss = friendsList.get(position);
-                Log.v("-=-=-==-=-=-", friendss.getUsername());
+
                 viewHolder_timeline_header.mood(friendss.getMood());
                 viewHolder_timeline_header.phone(friendss.getPhone());
                 viewHolder_timeline_header.name(friendss.getUsername());
