@@ -6,6 +6,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+
 import us.sayederfanarefin.R;
 
 /**
@@ -37,7 +43,20 @@ public class friends_recycler_view extends RecyclerView.ViewHolder {
     public void phone(String phone){
         this.phone.setText(phone);
     }
-    public void invite_friend_user_image(Image image){
-      //  this.invite_friend_user_image.setImageBitmap(image);
+
+
+    public  void setPost_profile_image(String url){
+        if (url ==null || url.equals("")){
+            invite_friend_user_image.setImageResource(R.mipmap.user);
+        }else{
+            Glide.with(invite_friend_user_image.getContext())
+                    .load(url)
+                    .placeholder(R.mipmap.user)
+                    .centerCrop()
+                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                    .dontAnimate()
+                    .into(invite_friend_user_image);
+        }
+
     }
 }

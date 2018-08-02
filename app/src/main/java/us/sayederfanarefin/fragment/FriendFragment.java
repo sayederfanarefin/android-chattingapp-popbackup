@@ -70,36 +70,23 @@ public class FriendFragment extends Fragment {
     private DatabaseReference mFriendsDatabaseReferenceCurrentUser;
     private DatabaseReference mFriendsDatabaseReference;
     private FirebaseDatabase mFirebaseDatabase;
-
+    private LinearLayout add_friend_floating;
     private RelativeLayout empty_view_friendsList, not_empty_friendsList;
-
     private ValueEventListener friendsListValueEventListener;
-
     private FirebaseUser currentUser;
     private LinearLayoutManager linearLayoutManager;
 
-   // private TextView user_name, user_custom_id, user_status;
-  //  LinearLayout self;
-           LinearLayout add_friend_floating;
-   // ImageView user_pro_pic_self_row;
+
     public FriendFragment() {
 
     }
-View view_;
+    View view_;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view_ = inflater.inflate(R.layout.fragment_friends, container, false);
         setHasOptionsMenu(true);
-//        user_name = view_.findViewById(R.id.self_row__profile_name);
-//        user_custom_id = view_.findViewById(R.id.self_row_profile_id);
-//        user_status = view_.findViewById(R.id.self_row_last_message);
-//        user_pro_pic_self_row = view_.findViewById(R.id.self_row_profile_image);
-
-//        self = view_.findViewById(R.id.self_row);
         add_friend_floating = view_.findViewById(R.id.add_frients_floating);
-
-
         add_friend_button_empty = view_.findViewById(R.id.add_friend_button_empty);
         add_friend_button_empty.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,32 +108,25 @@ View view_;
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         mFirebaseDatabase = database.getDatabase();
-
         mFirebaseAuth = FirebaseAuth.getInstance();
         currentUser= mFirebaseAuth.getCurrentUser();
-
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                currentUser= firebaseAuth.getCurrentUser();
-                if (currentUser != null) {
-                    onInitialize(view);
-
-                } else {
-                    Intent intent = new Intent(getActivity(), FirstScreen.class);
-                    getActivity().startActivity(intent);
-                }
+            currentUser= firebaseAuth.getCurrentUser();
+            if (currentUser != null) {
+                onInitialize(view);
+            } else {
+                Intent intent = new Intent(getActivity(), FirstScreen.class);
+                getActivity().startActivity(intent);
+            }
             }
         };
 
         if (currentUser != null) {
-
             onInitialize(view);
-
         } else {
-
             Intent intent = new Intent(getActivity(), FirstScreen.class);
             getActivity().startActivity(intent);
         }
@@ -174,34 +154,31 @@ View view_;
     }
     private void onInitialize(View view) {
         mUsername = currentUser.getDisplayName();
-    //    user_name.setText(currentUser.getDisplayName());
-        mFriendsDatabaseReference = mFirebaseDatabase.getReference()
-                .child(values.dbFriendsLocation);
-        mUserDatabaseReference = mFirebaseDatabase.getReference()
-                .child(values.dbUserLocation);
-        mUserDatabaseReferencecurrentUsergetUidValueEventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                users me = snapshot.getValue(users.class);
-                if(me != null){
-              //      user_status.setText(me.getMood());
-              //      user_name.setText(me.getUsername());
-              //      user_custom_id.setText(me.getPhone());
-//                    if(isAttached){
-//                        Glide.with(getActivity().getApplicationContext())
-//                                .load(me.getProfilePicLocation())
-//                                .centerCrop()
-//                                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-//                                .bitmapTransform(new CropCircleTransformation(getActivity().getApplicationContext()))
-//                                .into(user_pro_pic_self_row);
-//                    }
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
-        };
-        mUserDatabaseReferenceCurrentUser = mUserDatabaseReference.child(currentUser.getUid());
-        mUserDatabaseReferenceCurrentUser.addValueEventListener(mUserDatabaseReferencecurrentUsergetUidValueEventListener);
+        mFriendsDatabaseReference = mFirebaseDatabase.getReference().child(values.dbFriendsLocation);
+        mUserDatabaseReference = mFirebaseDatabase.getReference().child(values.dbUserLocation);
+//        mUserDatabaseReferencecurrentUsergetUidValueEventListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot snapshot) {
+//                users me = snapshot.getValue(users.class);
+//                if(me != null){
+//              //      user_status.setText(me.getMood());
+//              //      user_name.setText(me.getUsername());
+//              //      user_custom_id.setText(me.getPhone());
+////                    if(isAttached){
+////                        Glide.with(getActivity().getApplicationContext())
+////                                .load(me.getProfilePicLocation())
+////                                .centerCrop()
+////                                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+////                                .bitmapTransform(new CropCircleTransformation(getActivity().getApplicationContext()))
+////                                .into(user_pro_pic_self_row);
+////                    }
+//                }
+//            }
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {}
+//        };
+     //   mUserDatabaseReferenceCurrentUser = mUserDatabaseReference.child(currentUser.getUid());
+     //   mUserDatabaseReferenceCurrentUser.addValueEventListener(mUserDatabaseReferencecurrentUsergetUidValueEventListener);
         friendsListView =  view.findViewById(R.id.friendsListView);
        // populateListView();
         mFriendsDatabaseReference.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
@@ -215,36 +192,54 @@ View view_;
     }
     FriendsFirebaseRecycler friendsListAdapter;
     int count = 0;
-
+    int i=0;
 
     private void populateListView(){
         mFriendsDatabaseReferenceCurrentUser = mFriendsDatabaseReference.child(currentUser.getUid());//.orderByChild("username");
 
         friendsListValueEventListener = new ValueEventListener() {
             final List<friends> friendsList= new ArrayList<friends>();
+            final List<users> friendsUsersList= new ArrayList<users>();
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot imageSnapshot : dataSnapshot.getChildren()) {
 
                     friendsList.add(imageSnapshot.getValue(friends.class));
+
                     count++;
                 }
                 if(count > 0){
 
-                    friends header_dummy_friends = new friends();
+                    for( i=0; i < friendsList.size(); i++){
+                        mUserDatabaseReference.child(friendsList.get(i).getUid()).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                friendsUsersList.add(dataSnapshot.getValue(users.class));
+                                if( i == count){
+                                    mUserDatabaseReference.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                            friendsUsersList.add(dataSnapshot.getValue(users.class));
+                                            if( i == count){
+                                                empty_view_friendsList.setVisibility(View.GONE);
+                                                not_empty_friendsList.setVisibility(View.VISIBLE);
+                                                friendsListAdapter = new FriendsFirebaseRecycler(friendsUsersList,getContext());
+                                                friendsListView.setLayoutManager(linearLayoutManager);
+                                                friendsListView.setItemAnimator(new DefaultItemAnimator());
+                                                friendsListView.setAdapter(friendsListAdapter);
+                                            }
+                                        }
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {}
+                                    });
 
-                    header_dummy_friends.setType_("header");
-                    friendsList.add(header_dummy_friends);
-                    empty_view_friendsList.setVisibility(View.GONE);
-                    not_empty_friendsList.setVisibility(View.VISIBLE);
+                                }
+                            }
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {}
+                        });
 
-
-                    friendsListAdapter = new FriendsFirebaseRecycler(friendsList,getContext());
-
-                    friendsListView.setLayoutManager(linearLayoutManager);
-                    friendsListView.setItemAnimator(new DefaultItemAnimator());
-                    friendsListView.setAdapter(friendsListAdapter);
-
+                    }
 
                 }else{
                     empty_view_friendsList.setVisibility(View.VISIBLE);
@@ -376,4 +371,5 @@ View view_;
             mFriendsDatabaseReferenceCurrentUser.removeEventListener(friendsListValueEventListener);
         }
     }
+
 }

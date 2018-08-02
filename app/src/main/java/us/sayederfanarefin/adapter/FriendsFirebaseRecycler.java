@@ -2,6 +2,7 @@ package us.sayederfanarefin.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +19,10 @@ import us.sayederfanarefin.model.users;
  */
 
 public class FriendsFirebaseRecycler extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
-    private List<friends> friendsList;
+    private List<users> friendsList;
     private Context context;
 
-    public FriendsFirebaseRecycler(List<friends> friendsList, Context context) {
+    public FriendsFirebaseRecycler(List<users> friendsList, Context context) {
         this.friendsList = friendsList;
         this.context = context;
     }
@@ -56,19 +57,23 @@ public class FriendsFirebaseRecycler extends RecyclerView.Adapter<RecyclerView.V
             case 0:
                 friends_recycler_view viewHolder_friends = (friends_recycler_view) holder;
 
-                friends friends = friendsList.get(position);
-                viewHolder_friends.mood(friends.getPhone());
+                users friends = friendsList.get(position);
+                Log.v("-=-=-==-=-=-", friends.getUsername());
+                viewHolder_friends.mood(friends.getMood());
                 viewHolder_friends.phone(friends.getPhone());
-                viewHolder_friends.name("");
+                viewHolder_friends.name(friends.getUsername());
+                viewHolder_friends.setPost_profile_image(friends.getProfilePicLocation());
                 break;
 
             case 1:
                 friends_recycler_view viewHolder_timeline_header = (friends_recycler_view)holder;
 
-                friends friendss = friendsList.get(position);
-                viewHolder_timeline_header.mood(friendss.getPhone());
+                users friendss = friendsList.get(position);
+                Log.v("-=-=-==-=-=-", friendss.getUsername());
+                viewHolder_timeline_header.mood(friendss.getMood());
                 viewHolder_timeline_header.phone(friendss.getPhone());
-                viewHolder_timeline_header.name("");
+                viewHolder_timeline_header.name(friendss.getUsername());
+                viewHolder_timeline_header.setPost_profile_image(friendss.getProfilePicLocation());
                 break;
         }
 
