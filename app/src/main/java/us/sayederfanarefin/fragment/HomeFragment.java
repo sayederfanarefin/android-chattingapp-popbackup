@@ -57,7 +57,13 @@ import us.sayederfanarefin.utils.values;
 import static android.app.Activity.RESULT_OK;
 
 
-public class HistoryFragment extends Fragment {
+/**
+ * Created by piashsarker on 7/10/17.
+ */
+/**
+ * Created by schmaedech on 30/06/17.
+ */
+public class HomeFragment extends Fragment {
 
     private users current_user;
     SharedPreferences sharedPref ;//= getActivity().getPreferences(Context.MODE_PRIVATE);
@@ -77,9 +83,28 @@ public class HistoryFragment extends Fragment {
     private Toolbar mToolBar;
     private StorageReference mStorageRef;
     private ProgressDialog mProgress;
-    public HistoryFragment() {
+
+    public HomeFragment() {
 
     }
+
+//    @Override
+//    public void onDetach() {
+//        super.onDetach();
+//        Log.v("=x=", "Info frag Detached");
+//        try {
+//            Field childFragmentManager = Fragment.class.getDeclaredField("mChildFragmentManager");
+//            childFragmentManager.setAccessible(true);
+//            childFragmentManager.set(this, null);
+//
+//        } catch (NoSuchFieldException e) {
+//            Log.v("=x=", "actvty dstryd");
+//            // throw new RuntimeException(e);
+//        } catch (IllegalAccessException e) {
+//            // throw new RuntimeException(e);
+//            Log.v("=x=", "actvty dstryd");
+//        }
+//    }
 
     @Nullable
     @Override
@@ -94,14 +119,11 @@ public class HistoryFragment extends Fragment {
         return v;
     }
 
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-    }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
     }
 
     private void findAndPopulateViews(View view){
@@ -149,7 +171,7 @@ public class HistoryFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 current_user = dataSnapshot.getValue(users.class);
 
-               // timeline_audio_url = current_user.getTimeLineAudio();
+                // timeline_audio_url = current_user.getTimeLineAudio();
 
                 timeLineRef = rootRef.child(values.dbUserLocation).child(current_user_firebase.getUid()).child("posts");
 
@@ -176,17 +198,17 @@ public class HistoryFragment extends Fragment {
                             timeline_self.setItemAnimator(new DefaultItemAnimator());
                             timeline_self.setAdapter(timeLineAdapter);
                         }else{
-                        empty_view.setVisibility(View.VISIBLE);
-                        timeline_self.setVisibility(View.GONE);
-                        button.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent = new Intent(getActivity(), NewStatusActivity.class);
-                                intent.putExtra("type", "text");
-                                getActivity().startActivity(intent);
-                            }
-                        });
-                    }
+                            empty_view.setVisibility(View.VISIBLE);
+                            timeline_self.setVisibility(View.GONE);
+                            button.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent = new Intent(getActivity(), NewStatusActivity.class);
+                                    intent.putExtra("type", "text");
+                                    getActivity().startActivity(intent);
+                                }
+                            });
+                        }
 
                     }
                     @Override
@@ -298,8 +320,8 @@ public class HistoryFragment extends Fragment {
                         }
                     });
 
-                   // audio_added_flag = true;
-                   // post_button.setClickable(true);
+                    // audio_added_flag = true;
+                    // post_button.setClickable(true);
                     mProgress.dismiss();
                 }
             });

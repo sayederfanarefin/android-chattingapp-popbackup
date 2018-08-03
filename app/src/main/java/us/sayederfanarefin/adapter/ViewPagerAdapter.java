@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import us.sayederfanarefin.fragment.ChatFragment;
 import us.sayederfanarefin.fragment.FriendFragment;
 import us.sayederfanarefin.fragment.HistoryFragment;
-import us.sayederfanarefin.fragment.InfoFragment;
+import us.sayederfanarefin.fragment.HomeFragment;
 
 
 /**
@@ -29,7 +29,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         } else if (position == 1) {
             return new HistoryFragment();
         } else {
-            return new InfoFragment();
+            return new HomeFragment();
         }
     }
 

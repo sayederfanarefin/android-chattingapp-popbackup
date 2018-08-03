@@ -15,4 +15,7 @@ public final class Constants {
     public static final String MESSAGE_ID = "MID";
     public static final String CHAT_NAME = "CNAME";
 
+
+    public static final int SMS_TIME_OUT = 120;
+
 }

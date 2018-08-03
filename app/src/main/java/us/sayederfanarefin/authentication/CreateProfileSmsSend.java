@@ -28,6 +28,7 @@ import java.util.concurrent.TimeUnit;
 
 import us.sayederfanarefin.MainActivity;
 import us.sayederfanarefin.R;
+import us.sayederfanarefin.utils.Constants;
 
 public class CreateProfileSmsSend extends AppCompatActivity {
 EditText pin;
@@ -59,7 +60,7 @@ EditText pin;
 
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
             phone_number,        // Phone number to verify
-            60,                 // Timeout duration
+                Constants.SMS_TIME_OUT,                 // Timeout duration
             TimeUnit.SECONDS,   // Unit of timeout
             this,               // Activity (for callback binding)
             new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {

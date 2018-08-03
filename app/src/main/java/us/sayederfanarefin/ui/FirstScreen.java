@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import us.sayederfanarefin.R;
 import us.sayederfanarefin.authentication.CreateProfile;
@@ -13,6 +14,7 @@ import us.sayederfanarefin.authentication.LoginPhone;
 public class FirstScreen extends AppCompatActivity {
 
     Button sign_in, sign_up;
+    ImageView twitter,facebook,github,google;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,11 @@ public class FirstScreen extends AppCompatActivity {
 
         sign_in = (Button) findViewById(R.id.button_login_2);
         sign_up = (Button) findViewById(R.id.button_sign_up_2);
+
+        twitter = (ImageView) findViewById(R.id.twitter_sign_in);
+        facebook = (ImageView) findViewById(R.id.fb_sign_in);
+        github = (ImageView) findViewById(R.id.github_sign_in);
+        google = (ImageView) findViewById(R.id.google_sign_in);
 
         sign_in.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +40,16 @@ public class FirstScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(FirstScreen.this, CreateProfile.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+        google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FirstScreen.this, LoginPhone.class);
                 startActivity(intent);
                 finish();
             }

@@ -35,7 +35,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="24dp"
+                android:layout_margin="16dp"
                 android:layout_weight="1"
                 >
 
@@ -51,6 +51,12 @@
                         <!--android:text="Welcome!"-->
                         <!--android:textAlignment="center"-->
                         <!--android:textSize="18sp" />-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Please Authenticate!"
+                        android:gravity="center_horizontal"
+                        />
                     <Button
                         android:id="@+id/button_login_2"
                         android:layout_width="match_parent"
@@ -76,6 +82,50 @@
                         android:layout_marginBottom="@dimen/dimen_login"
                         android:textColor="@color/colorPrimary"
                         android:background="@drawable/button_primary_color_border_no_background"/>
+
+
+                    <LinearLayout
+                        android:id="@+id/social_button_holder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="@dimen/dimen_login"
+                        android:layout_marginLeft="@dimen/dimen_login"
+                        android:layout_marginBottom="4dp"
+                        android:layout_gravity="center_horizontal">
+
+
+                        <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:id="@+id/google_sign_in"
+                            android:layout_marginRight="12dp"
+                        android:src="@mipmap/google"/>
+
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:id="@+id/fb_sign_in"
+                            android:layout_marginRight="12dp"
+                            android:src="@mipmap/fb"/>
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:id="@+id/twitter_sign_in"
+                            android:layout_marginRight="12dp"
+                            android:src="@mipmap/twitter"/>
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:id="@+id/github_sign_in"
+
+                            android:src="@mipmap/git"/>
+                    </LinearLayout>
+
                 </LinearLayout>
 
 

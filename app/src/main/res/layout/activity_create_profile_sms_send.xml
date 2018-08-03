@@ -41,6 +41,15 @@
                 android:layout_weight="1"
                 >
 
+                <TextView
+                    android:id="@+id/forgot_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Please enter the 6 digit code that we have send to your phone."
+                    android:layout_margin="@dimen/dimen_login"
+                    android:layout_weight="1"
+                    />
 
                 <EditText
                     android:id="@+id/create_profile_pin"
@@ -57,15 +66,7 @@
 
 
 
-                <TextView
-                    android:id="@+id/forgot_pass"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="Please enter the 6 digit code that we have send to your phone."
-                    android:layout_margin="@dimen/dimen_login"
-                    android:layout_weight="1"
-                    />
+
 
                 <Button
                     android:id="@+id/button_create_user_verify"
