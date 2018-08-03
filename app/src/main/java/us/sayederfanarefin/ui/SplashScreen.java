@@ -47,7 +47,7 @@ public class SplashScreen extends AwesomeSplash
 
         //Customize Circular Reveal
         configSplash.setBackgroundColor(R.color.colorPrimary); //any color you want form colors.xml
-        configSplash.setAnimCircularRevealDuration(500); //int ms
+        configSplash.setAnimCircularRevealDuration(800); //int ms
         configSplash.setRevealFlagX(Flags.REVEAL_RIGHT);  //or Flags.REVEAL_LEFT
         configSplash.setRevealFlagY(Flags.REVEAL_BOTTOM); //or Flags.REVEAL_TOP
 
@@ -55,18 +55,18 @@ public class SplashScreen extends AwesomeSplash
 
         //Customize Logo
         configSplash.setLogoSplash(R.mipmap.logoneworange); //or any other drawable
-        configSplash.setAnimLogoSplashDuration(500); //int ms
+        configSplash.setAnimLogoSplashDuration(800); //int ms
         configSplash.setAnimLogoSplashTechnique(Techniques.FadeInDown); //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
 
 
 
         //Customize Title
         configSplash.setTitleSplash(this.getResources().getString(R.string.app_name));
-        configSplash.setTitleTextColor(R.color.colorWhite);
+        configSplash.setTitleTextColor(R.color.profilePictureBorder);
         configSplash.setTitleTextSize(30f); //float value
-        configSplash.setAnimTitleDuration(500);
+        configSplash.setAnimTitleDuration(800);
         configSplash.setAnimTitleTechnique(Techniques.FadeInUp);
-        //configSplash.setTitleFont("fonts/myfont.ttf"); //provide string to your font located in assets/fonts/
+       // configSplash.setTitleFont("fonts/Montserrat-Light.ttf"); //provide string to your font located in assets/fonts/
 
     }
 
@@ -75,24 +75,28 @@ public class SplashScreen extends AwesomeSplash
 
         //transit to another activity here
         //or do whatever you want
-        new Handler().postDelayed(new Runnable() {
+//        new Handler().postDelayed(new Runnable() {
+//
+//            /*
+//             * Showing splash screen with a timer. This will be useful when you
+//             * want to show case your app logo / company
+//             */
+//
+//            @Override
+//            public void run() {
+//                // This method will be executed once the timer is over
+//                // Start your app main activity
+//                Intent i = new Intent(SplashScreen.this, MainActivity.class);
+//                startActivity(i);
+//
+//                // close this activity
+//                finish();
+//            }
+//        }, 500);
 
-            /*
-             * Showing splash screen with a timer. This will be useful when you
-             * want to show case your app logo / company
-             */
-
-            @Override
-            public void run() {
-                // This method will be executed once the timer is over
-                // Start your app main activity
-                Intent i = new Intent(SplashScreen.this, MainActivity.class);
-                startActivity(i);
-
-                // close this activity
-                finish();
-            }
-        }, 500);
+        Intent i = new Intent(SplashScreen.this, MainActivity.class);
+        startActivity(i);
+        finish();
     }
 
 }
