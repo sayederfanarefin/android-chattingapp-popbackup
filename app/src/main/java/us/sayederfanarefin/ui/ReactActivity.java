@@ -231,78 +231,91 @@ public class ReactActivity extends AppCompatActivity {
             @Override
             public void onPictureTaken(byte[] picture) {
                 super.onPictureTaken(picture);
-                Bitmap result = BitmapFactory.decodeByteArray(picture, 0, picture.length);
-                result = scaleBitmap(result);
-                preview_666.setVisibility(View.VISIBLE);
-                preview_666.setImageBitmap(result);
+                Bitmap resultRaw = BitmapFactory.decodeByteArray(picture, 0, picture.length);
+                final Bitmap result = scaleBitmap(resultRaw);
 
-                capture.setVisibility(View.GONE);
-                re_capture_emotion.setVisibility(View.VISIBLE);
+                runOnUiThread(new Runnable() {
 
-                status_text_emotion.setText("processing..");
-                try {
-                    Handler myHandler = new Handler() {
+                    @Override
+                    public void run() {
 
-                        @Override
-                        public void handleMessage(android.os.Message msg) {
+                        // Stuff that updates the UI
+                        preview_666.setVisibility(View.VISIBLE);
+                        preview_666.setImageBitmap(result);
 
-                            String emotion = msg.getData().getString("emotion");
-                            Log.v("-x-", "---" + emotion);
-                            status_text_emotion.setText("Done");
+                        capture.setVisibility(View.GONE);
+                        re_capture_emotion.setVisibility(View.VISIBLE);
 
-                            setTheUltimateEmotion(emotion);
-                            ReactActivity.this.emotion = emotion;
+                        status_text_emotion.setText("processing..");
 
-                            re_capture_emotion.setVisibility(View.VISIBLE);
-                            set_emotion.setVisibility(View.VISIBLE);
+                        try {
+                            Handler myHandler = new Handler() {
 
-                            Animation fadeOut = new AlphaAnimation(1, 0);
-                            fadeOut.setInterpolator(new AccelerateInterpolator());
-                            fadeOut.setDuration(1000);
+                                @Override
+                                public void handleMessage(android.os.Message msg) {
 
-                            fadeOut.setAnimationListener(new Animation.AnimationListener()
-                            {
-                                public void onAnimationEnd(Animation animation)
-                                {
-                                    status_layout.setVisibility(View.GONE);
-                                    preview_666.setVisibility(View.GONE);
+                                    String emotion = msg.getData().getString("emotion");
+                                    Log.v("-x-", "---" + emotion);
+                                    status_text_emotion.setText("Done");
+
+                                    setTheUltimateEmotion(emotion);
+                                    ReactActivity.this.emotion = emotion;
+
+                                    re_capture_emotion.setVisibility(View.VISIBLE);
+                                    set_emotion.setVisibility(View.VISIBLE);
+
+                                    Animation fadeOut = new AlphaAnimation(1, 0);
+                                    fadeOut.setInterpolator(new AccelerateInterpolator());
+                                    fadeOut.setDuration(1000);
+
+                                    fadeOut.setAnimationListener(new Animation.AnimationListener()
+                                    {
+                                        public void onAnimationEnd(Animation animation)
+                                        {
+                                            status_layout.setVisibility(View.GONE);
+                                            preview_666.setVisibility(View.GONE);
+
+                                        }
+                                        public void onAnimationRepeat(Animation animation) {}
+                                        public void onAnimationStart(Animation animation) {}
+                                    });
+
+                                    Animation fadeIn = new AlphaAnimation(0,1);
+                                    fadeIn.setInterpolator(new AccelerateInterpolator());
+                                    fadeIn.setDuration(1000);
+
+                                    fadeIn.setAnimationListener(new Animation.AnimationListener()
+                                    {
+                                        public void onAnimationEnd(Animation animation)
+                                        {
+                                            manual_emotion.setVisibility(View.VISIBLE);
+
+                                        }
+                                        public void onAnimationRepeat(Animation animation) {}
+                                        public void onAnimationStart(Animation animation) {}
+                                    });
+
+                                    status_layout.startAnimation(fadeOut);
+                                    preview_666.startAnimation(fadeOut);
+                                    capture.setAnimation(fadeOut);
+
+                                    re_capture_emotion.setAnimation(fadeIn);
+                                    manual_emotion.setAnimation(fadeIn);
+                                    emoji_animation_background.setVisibility(View.VISIBLE);
+                                    emoji_animation_background.startRippleAnimation();
 
                                 }
-                                public void onAnimationRepeat(Animation animation) {}
-                                public void onAnimationStart(Animation animation) {}
-                            });
+                            };
 
-                            Animation fadeIn = new AlphaAnimation(0,1);
-                            fadeIn.setInterpolator(new AccelerateInterpolator());
-                            fadeIn.setDuration(1000);
-
-                            fadeIn.setAnimationListener(new Animation.AnimationListener()
-                            {
-                                public void onAnimationEnd(Animation animation)
-                                {
-                                    manual_emotion.setVisibility(View.VISIBLE);
-
-                                }
-                                public void onAnimationRepeat(Animation animation) {}
-                                public void onAnimationStart(Animation animation) {}
-                            });
-
-                            status_layout.startAnimation(fadeOut);
-                            preview_666.startAnimation(fadeOut);
-                            capture.setAnimation(fadeOut);
-
-                            re_capture_emotion.setAnimation(fadeIn);
-                            manual_emotion.setAnimation(fadeIn);
-                            emoji_animation_background.setVisibility(View.VISIBLE);
-                            emoji_animation_background.startRippleAnimation();
-
+                            new doRequest(result, client, myHandler).execute();
+                        } catch (Exception e) {
+                            Log.v("-x-", "---" + e.getLocalizedMessage());
                         }
-                    };
+                    }
+                });
 
-                    new doRequest(result, client, myHandler).execute();
-                } catch (Exception e) {
-                    Log.v("-x-", "---" + e.getLocalizedMessage());
-                }
+
+
 
             }
 
