@@ -83,18 +83,14 @@ public class MessageFragment extends Fragment {
 
     List<ChatHeader> recent_chats_list;
     private String myUid;
+    private View view_;
+    private LinearLayout new_chat_row;
+    LinearLayout floating_new_message;
 
     public MessageFragment() {
 
     }
 
-
-
-
-
-    private View view_;
-    private LinearLayout new_chat_row;
-    LinearLayout floating_new_message;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -147,11 +143,6 @@ public class MessageFragment extends Fragment {
         });
 
     }
-
-
-
-
-
 
     private Map<String, Object> map_chatIds;
 
@@ -237,7 +228,7 @@ private void tempMethod(DataSnapshot dataSnapshot){
  //                                   // Log.v("===special case name", name);
                                     ch.setChatName(name);
                                     ch.setImageLocation(temp.getProfilePicLocation());
-//                                    // Log.v("===xxx", temp.getProfilePicLocation());
+  Log.v("===xxx", temp.getProfilePicLocation());
 
                                     Query lastMessageQuery = messageDatabaseReference.child(chat_id).orderByChild("timestamp").limitToLast(1);
                                     lastMessageQuery.addValueEventListener(new ValueEventListener() {

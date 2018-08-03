@@ -57,7 +57,7 @@ import us.sayederfanarefin.utils.values;
 import static android.app.Activity.RESULT_OK;
 
 
-public class HistoryFragment extends Fragment {
+public class TimelineFragment extends Fragment {
 
     private users current_user;
     SharedPreferences sharedPref ;//= getActivity().getPreferences(Context.MODE_PRIVATE);
@@ -77,7 +77,7 @@ public class HistoryFragment extends Fragment {
     private Toolbar mToolBar;
     private StorageReference mStorageRef;
     private ProgressDialog mProgress;
-    public HistoryFragment() {
+    public TimelineFragment() {
 
     }
 
