@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+
 import us.sayederfanarefin.R;
 import us.sayederfanarefin.authentication.CreateProfile;
 import us.sayederfanarefin.authentication.LoginPhone;
@@ -49,10 +51,11 @@ public class FirstScreen extends AppCompatActivity {
         google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FirstScreen.this, LoginPhone.class);
-                startActivity(intent);
-                finish();
+
             }
         });
     }
+
+
+
 }
