@@ -40,7 +40,6 @@ public class friends_recycler_view extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(itemView.getContext(), ProfileActivityFriend.class);
                 intent.putExtra("uid", uid);
                 itemView.getContext().startActivity(intent);

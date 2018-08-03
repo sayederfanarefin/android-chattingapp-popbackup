@@ -1,6 +1,7 @@
 package us.sayederfanarefin.ui;
 
 import android.Manifest;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -29,7 +30,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -295,6 +298,7 @@ public class ProfileActivityFriend extends AppCompatActivity {
     }
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
+    private ScrollView scrollView;
     private void initializeScreen() {
         mFirebaseAuth = FirebaseAuth.getInstance();
         root = FirebaseDatabase.getInstance();
@@ -346,9 +350,13 @@ public class ProfileActivityFriend extends AppCompatActivity {
 
         timeline_self = (RecyclerView) findViewById(R.id.view_timeline_self);
 
+        scrollView = (ScrollView) findViewById(R.id.profile_activity_frind_scrollview) ;
+
         linearLayoutManager =new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         linearLayoutManager.setReverseLayout(true);
+        first_item_friend_profile = (LinearLayout) findViewById(R.id.first_item_friend_profile);
+
 
         showPermissionWriteExternalStorage();
         showPermissionCamera();
@@ -357,9 +365,11 @@ public class ProfileActivityFriend extends AppCompatActivity {
         time_line_relative_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivityFriend.this, MainActivity.class);
-                intent.putExtra("frag", "timeline");
-                startActivity(intent);
+
+//                ObjectAnimator animator=ObjectAnimator.ofInt(scrollView, "scrollX",0 );
+//                animator.setDuration(800);
+//                animator.start();
+                scrollView.scrollTo(0, timeline_self.getTop());
             }
         });
 
@@ -428,18 +438,14 @@ public class ProfileActivityFriend extends AppCompatActivity {
 
                 }
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-
-
-
-
     }
 
+    private LinearLayout first_item_friend_profile;
     private final int REQUEST_PERMISSION_PHONE_STATE=1;
     private final int REQUEST_PERMISSION_CAMERA=2;
 
@@ -646,13 +652,7 @@ public class ProfileActivityFriend extends AppCompatActivity {
 
                                         }
                                     });
-
-
-
-
                                 }
-
-
                             };
 
 
@@ -708,8 +708,8 @@ public class ProfileActivityFriend extends AppCompatActivity {
 
             }
         });
-
-
+        scrollView.setSmoothScrollingEnabled(true);
+        scrollView.scrollTo(0, first_item_friend_profile.getTop());
     }
 
     private void goBack(){
