@@ -286,7 +286,7 @@
                         android:layout_height="wrap_content"
                         android:textAlignment="textEnd"
                         android:layout_weight="1"
-                        android:textSize="5pt"
+                        android:textSize="6pt"
                         android:id="@+id/comment_display"
                         android:text="2 comments"/>
 

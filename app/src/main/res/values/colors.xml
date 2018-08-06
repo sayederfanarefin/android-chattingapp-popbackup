@@ -8,6 +8,7 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGray">#EBE7E4</color>
     <color name="background">#F9F9F9</color>
+    <color name="backgroundCommentText">#6affe19f</color>
     <color name="smallTextColor">#9E9E9E</color>
 
     <color name="textColorBlack">#000000</color>
