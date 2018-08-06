@@ -87,6 +87,7 @@ dependencies {
     // compile "com.google.android.gms:play-services-location:$gsmVersion"
     // compile "com.google.android.gms:play-services-maps:$gsmVersion"
     // https://github.com/excilys/androidannotations
+
     apt "org.androidannotations:androidannotations:$annotationsVersion"
     compile "org.androidannotations:androidannotations-api:$annotationsVersion"
 

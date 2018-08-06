@@ -51,7 +51,7 @@ project.ext {
 
     supportVersion = "26.0.0-alpha1" //26.0.0-alpha1'
     multiDexVersion = "1.0.1"
-    annotationsVersion = "4.1.0"
+    annotationsVersion = "4.4.0"
     iconifyVersion = "2.2.2"
     glideVersion = "3.6.1"
     gsmVersion = "11.0.2" //"11.8.0"
