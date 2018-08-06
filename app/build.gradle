@@ -3,11 +3,8 @@ apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     // Config
-//    compileSdkVersion rootProject.ext.compileSdkVersion
-//    buildToolsVersion rootProject.ext.buildToolsVersion
-
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     // Config
     dexOptions {
@@ -18,16 +15,12 @@ android {
 
     defaultConfig {
         applicationId "us.sayederfanarefin"
-        versionCode 1
-        versionName "1.0"
-        minSdkVersion 19
-        targetSdkVersion 26
 
         // Config
-      //  minSdkVersion rootProject.ext.minSdkVersion
-      //  targetSdkVersion rootProject.ext.targetSdkVersion
-       // versionCode "${versionMajor}".toInteger() * 1000 + "${versionMinor}".toInteger() * 100 + "${versionPatch}".toInteger() * 10 + "${versionBuild}".toInteger();
-       // versionName "${versionMajor}.${versionMinor}.${versionPatch}.${versionBuild}-${versionTag}"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode "${versionMajor}".toInteger() * 1000 + "${versionMinor}".toInteger() * 100 + "${versionPatch}".toInteger() * 10 + "${versionBuild}".toInteger();
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}.${versionBuild}-${versionTag}"
 
         // Config
         multiDexEnabled = true
@@ -71,7 +64,7 @@ android {
 
 repositories {
     maven { url 'https://jitpack.io' }
-    maven {  url "https://maven.google.com" }
+    maven { url "https://maven.google.com" }
     //maven { url 'https://maven.fabric.io/public' }
 }
 
@@ -82,21 +75,20 @@ dependencies {
     /**
      * =================== Support libraries ===================
      */
-    compile "com.android.support:support-v4:$supportVersion"
-    compile "com.android.support:appcompat-v7:$supportVersion"
-    compile "com.android.support:design:$supportVersion"
-    compile "com.android.support:recyclerview-v7:$supportVersion"
-    compile "com.android.support:cardview-v7:$supportVersion"
-    compile "com.android.support:multidex:$multiDexVersion"
-
+//    compile "com.android.support:support-v4:$supportVersion"
+//    compile "com.android.support:appcompat-v7:$supportVersion"
+//    compile "com.android.support:design:$supportVersion"
+//    compile "com.android.support:recyclerview-v7:$supportVersion"
+//    compile "com.android.support:cardview-v7:$supportVersion"
+    // compile "com.android.support:multidex:$multiDexVersion"
 
     // =================== Google play services ===================
     // https://developers.google.com/android/guides/setup
-   // compile "com.google.android.gms:play-services-location:$gsmVersion"
-   // compile "com.google.android.gms:play-services-maps:$gsmVersion"
+    // compile "com.google.android.gms:play-services-location:$gsmVersion"
+    // compile "com.google.android.gms:play-services-maps:$gsmVersion"
     // https://github.com/excilys/androidannotations
-  //  apt "org.androidannotations:androidannotations:$annotationsVersion"
-  //  compile "org.androidannotations:androidannotations-api:$annotationsVersion"
+    apt "org.androidannotations:androidannotations:$annotationsVersion"
+    compile "org.androidannotations:androidannotations-api:$annotationsVersion"
 
     // =================== UI ===================
     // https://github.com/chrisjenx/Calligraphy
@@ -146,7 +138,6 @@ dependencies {
     compile 'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'
     compile 'com.github.johnkil.android-appmsg:appmsg:1.2.0'
 
-
     //multiple images
     compile 'com.github.stfalcon:multiimageview:0.1'
 
@@ -159,27 +150,28 @@ dependencies {
     //qr code generator
     compile 'com.github.kenglxn.QRGen:android:2.3.0'
 
-    //androdi stuff
-    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
-    compile 'com.android.support:design:26.0.0-alpha1'
-    compile 'com.android.support:support-v4:26.0.0-alpha1'
-    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
-    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:multidex:1.0.1'
-    compile 'com.android.support:support-annotations:26.0.0-alpha1'
+    //android suport stuff
+    compile "com.android.support:appcompat-v7:$supportVersion"
+    compile "com.android.support:design:$supportVersion"
+    compile "com.android.support:support-v4:$supportVersion"
+    compile "com.android.support:cardview-v7:$supportVersion"
+    compile "com.android.support:recyclerview-v7:$supportVersion"
+    compile "com.android.support.constraint:constraint-layout:1.0.2"
+    compile "com.android.support:multidex:$multiDexVersion"
+
+    compile "com.android.support:support-annotations:$supportVersion"
 
     //emotion detection
     compile 'com.microsoft.projectoxford:emotion:1.0.355'
     compile 'com.microsoft.projectoxford:face:1.0.0'
 
     //google android
-    compile 'com.google.android.gms:play-services-auth:11.0.2'
-    compile 'com.google.android.gms:play-services-analytics:11.0.2'
-    compile 'com.google.android.gms:play-services-identity:11.0.2'
-    compile 'com.google.android.gms:play-services-gcm:11.0.2'
-    compile 'com.google.android.gms:play-services-maps:11.0.2'
-    compile 'com.google.android.gms:play-services-location:11.0.2'
+    compile "com.google.android.gms:play-services-auth:$gsmVersion"
+    compile "com.google.android.gms:play-services-analytics:$gsmVersion"
+    compile "com.google.android.gms:play-services-identity:$gsmVersion"
+    compile "com.google.android.gms:play-services-gcm:$gsmVersion"
+    compile "com.google.android.gms:play-services-maps:$gsmVersion"
+    compile "com.google.android.gms:play-services-location:$gsmVersion"
 
     //gson
     compile 'com.google.code.gson:gson:2.7'
@@ -194,15 +186,15 @@ dependencies {
     compile 'jp.wasabeef:glide-transformations:2.0.1'
 
     //firebase stuff
-    compile 'com.google.firebase:firebase-database:11.0.2'
-    compile 'com.google.firebase:firebase-auth:11.0.2'
-    compile 'com.google.firebase:firebase-storage:11.0.2'
-    compile 'com.google.firebase:firebase-messaging:11.0.2'
-    compile 'com.google.firebase:firebase-config:11.0.2'
-    compile 'com.google.firebase:firebase-ads:11.0.2'
-    compile 'com.google.firebase:firebase-core:11.0.2'
-    compile 'com.google.firebase:firebase-crash:11.0.2'
-    compile 'com.firebaseui:firebase-ui:0.6.0'
+    compile "com.google.firebase:firebase-database:$gsmVersion"
+    compile "com.google.firebase:firebase-auth:$gsmVersion"
+    compile "com.google.firebase:firebase-storage:$gsmVersion"
+    compile "com.google.firebase:firebase-messaging:$gsmVersion"
+    compile "com.google.firebase:firebase-config:$gsmVersion"
+    compile "com.google.firebase:firebase-ads:$gsmVersion"
+    compile "com.google.firebase:firebase-core:$gsmVersion"
+    compile "com.google.firebase:firebase-crash:$gsmVersion"
+    compile "com.firebaseui:firebase-ui:0.6.0"
 
     //bubble head tag
     compile 'com.github.mabbas007:TagsEditText:1.0.5'
@@ -224,7 +216,6 @@ dependencies {
     compile 'id.zelory:compressor:2.1.0'
 
     //audio libraru
-
 
 //test
     // androidTestCompile 'com.android.support.test.espresso:espresso-intents:3.+'
@@ -248,6 +239,9 @@ dependencies {
     compile 'com.skyfishjy.ripplebackground:library:1.0.1'
     // sectioned header
     compile 'com.afollestad:sectioned-recyclerview:0.5.0'
+
+    //splash screen animation
+    compile 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
 }
 
 apt {
