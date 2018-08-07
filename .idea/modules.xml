@@ -3,10 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://C:\Users\Sayed Erfan Arefin\Desktop\android-template\ExpenseManager.iml" filepath="C:\Users\Sayed Erfan Arefin\Desktop\android-template\ExpenseManager.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android-template.iml" filepath="$PROJECT_DIR$/android-template.iml" />
+      <module fileurl="file://E:\Desktop april 2018\popbackup - Copy - Copy\android-template.iml" filepath="E:\Desktop april 2018\popbackup - Copy - Copy\android-template.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\Users\Sayed Erfan Arefin\Desktop\android-template\app\app.iml" filepath="C:\Users\Sayed Erfan Arefin\Desktop\android-template\app\app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/popbackup copy.iml" filepath="$PROJECT_DIR$/popbackup copy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/popbackup - Copy - Copy.iml" filepath="$PROJECT_DIR$/popbackup - Copy - Copy.iml" />
+      <module fileurl="file://E:\Desktop april 2018\popbackup - Copy - Copy\popbackup copy.iml" filepath="E:\Desktop april 2018\popbackup - Copy - Copy\popbackup copy.iml" />
     </modules>
   </component>
 </project>

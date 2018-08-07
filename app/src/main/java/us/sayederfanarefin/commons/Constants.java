@@ -22,4 +22,6 @@ public interface Constants {
             R.mipmap.settings,
             R.mipmap.logout
     };
+
+    public static final String firebaseUserNode = "user";
 }
