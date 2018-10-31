@@ -1,4 +1,4 @@
-# POP
+# Orange Chat
 
 This is a social media application developed in android. Which includes the following features:
  - Sign up sign in using email,phone,facebook and other social medias (Used firebase for this)
